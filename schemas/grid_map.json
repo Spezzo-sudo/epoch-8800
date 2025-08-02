@@ -1,0 +1,9 @@
+{
+  "gridType": "hex",
+  "tileSize": 64,
+  "width": 10,
+  "height": 10,
+  "tiles": [
+    {"id": "0,0", "q": 0, "r": 0, "type": "plain", "ownerFaction": null, "resourceYields": {"stronix": 1, "crysalis": 0, "pyronis": 0, "voltaris": 0}, "hasDefense": false, "allianceId": null}
+  ]
+}

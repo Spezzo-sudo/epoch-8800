@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DefenseConfig",
+  "type": "object",
+  "properties": {
+    "structures": {
+      "type": "array",
+      "items": {"type": "object", "properties": {"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"tags":{"type":"array","items":{"type":"string"}},"energyRequired":{"type":"number"},"faction":{"type":"string"}}, "required": ["id","name","description","tags"]}
+    }
+  },
+  "required": ["structures"]
+}

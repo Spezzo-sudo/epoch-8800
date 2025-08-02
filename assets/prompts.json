@@ -1,0 +1,14 @@
+[
+  {
+    "id": "unit_spaeherdrohne",
+    "type": "sprite",
+    "size": "64x64",
+    "prompt": "Low-poly isometric scout drone with cyan glow, minimal texture, 64x64 PNG"
+  },
+  {
+    "id": "icon_stronix",
+    "type": "icon",
+    "size": "32x32",
+    "prompt": "Simple metallic ingot icon on transparent background, 32x32 PNG"
+  }
+]

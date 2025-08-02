@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "playerId": { "type": "string" },
+    "buildQueue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "taskId": { "type": "string" },
+          "taskCategory": { "enum": ["building","research","defense","unit"] },
+          "targetId": { "type": "string" },
+          "startTime": { "type": "number" },
+          "duration": { "type": "number" }
+        },
+        "required": ["taskId","taskCategory","targetId","startTime","duration"]
+      }
+    }
+  },
+  "required": ["playerId","buildQueue"]
+}

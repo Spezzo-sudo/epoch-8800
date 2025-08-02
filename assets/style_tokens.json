@@ -1,0 +1,10 @@
+{
+  "colors": {
+    "AetherionMain": "#00FFCC",
+    "ThermoclanAccent": "#FF5500",
+    "VorrTechPrimary": "#9933FF",
+    "NovarkhGold": "#FFCC33"
+  },
+  "spacing": { "sm": 4, "md": 8, "lg": 16 },
+  "fontSizes": { "small": 12, "base": 14, "lg": 18 }
+}
