@@ -1,4 +1,44 @@
 # Open Tasks
+
+- [ ] **Replace stub typings** – Install official `@types/*` and real packages for React, Phaser, Recharts, Supertest, Jest, and Firebase Admin (file: `src/types/*`)
+
+## Phase 0 – Closed Alpha QA, UX-Feedback, kritische Bugfixes
+- [ ] **Phase 0 – Closed Alpha QA** – Interne Tester prüfen alle Kern-Mechaniken und dokumentieren kritische Bugs.
+- [ ] **Phase 0 – UX-Report Top-5** – Wichtigste UX-Probleme der Tester sammeln und priorisieren.
+- [ ] **Phase 0 – Bug Tracker ≤10** – Kritische Issues im Bug-Tracker auf zehn oder weniger reduzieren.
+
+## Phase 1 – Art-Review & Asset-Finalisierung, Sound-Integration, interaktives Tutorial
+- [ ] **Phase 1 – Asset Review** – Finales Asset-Pack prüfen und freigeben.
+- [ ] **Phase 1 – Sound Integration** – Soundeffekte und Musik ins Spiel integrieren.
+- [ ] **Phase 1 – Tutorial Level** – Interaktives Tutorial-Level fertigstellen.
+
+## Phase 2 – Allianz-Chat/Forum, Discord-Server, Beta-Registrierung & Social-Media-Launch
+- [ ] **Phase 2 – Alliance Chat** – Ingame-Allianz-Chat und Forum implementieren.
+- [ ] **Phase 2 – Discord Community** – Discord-Server einrichten und 100+ Mitglieder gewinnen.
+- [ ] **Phase 2 – Beta Registration** – Beta-Anmeldung und Social-Media-Kampagne starten mit 500+ Signups.
+- [ ] **Phase 2 – Alliance Backend** – Alliance-Gründung, -Beitritt, Kapazitäts-Upgrades und gemeinsame Spionageberichte umsetzen.
+- [ ] **Phase 2 – Alliance UI** – Management-Panel mit Chat, Forum und Banner-Overlay erstellen.
+
+## Phase 3 – Asynchrones PvP mit ELO, Saison-System, kosmetische Belohnungen
+- [ ] **Phase 3 – Async PvP Loop** – Asynchrones PvP mit ELO-Bewertung und Ranglisten implementieren.
+- [ ] **Phase 3 – Season Dashboard** – Saison-System mit Fortschrittsanzeige bauen.
+- [ ] **Phase 3 – Cosmetic Skins** – Drei freischaltbare kosmetische Skins hinzufügen.
+- [ ] **Phase 3 – PvP Backend** – Kampfauflösung mit ELO und Ranking-Daten entwickeln.
+- [ ] **Phase 3 – Leaderboards UI** – Spieler- und Allianz-Ranglisten mit Saisonresets anzeigen.
+- [ ] **Phase 3 – PvP Notifications** – Angriff/Verteidigung-Toastmeldungen und Zusammenfassungen einbauen.
+
+## Phase 4 – Marktplatz & Auktionen, Direkttausch mit Escrow, Abuse-Schutz
+- [ ] **Phase 4 – Marketplace Launch** – Marktplatz und Auktionssystem bereitstellen.
+- [ ] **Phase 4 – Escrow Trades** – Direkttausch mit Escrow-Funktion implementieren.
+- [ ] **Phase 4 – Abuse Protection** – Transaktionslog und Abuse-Tests durchführen.
+
+## Phase 5 – Open Beta & Stress-Test, Lokalisierung, Mobile-Optimierung, langfristige Roadmap
+- [ ] **Phase 5 – Stress Test** – Offene Beta mit 99,9% Uptime durchführen.
+- [ ] **Phase 5 – Localization** – UI in drei Sprachen bereitstellen.
+- [ ] **Phase 5 – Low-Bandwidth Mode** – Mobile-optimierten Low-Bandwidth-Modus entwickeln.
+- [ ] **Phase 5 – Long-term Roadmap** – Langfristige Feature-Roadmap veröffentlichen.
+
+### Archived Tasks
 - [x] **Phaser typings** – TypeScript compilation fails because Phaser module typings are missing (file: `frontend/*`)
 - [x] **Research faction type mismatch** – `faction` fields in `research_tree.json` cause type errors with `FactionId` union (file: `engine/researchSystem.ts`)
 - [x] **ES2019 lib for Object.fromEntries** – `Object.fromEntries` used but tsconfig only targets es2017 (file: `tsconfig.json`)
@@ -23,44 +63,13 @@
 - [x] **Dashboard charts** – Balancing dashboard uses placeholder text instead of Recharts graphs (file: `frontend/balancingDashboard.tsx`)
 - [x] **React typings missing** – react, react-dom, and recharts types not installed causing build errors (file: `frontend/balancingDashboard.tsx`)
 - [x] **Firebase-admin not installed** – build fails because firebase-admin module cannot be resolved (file: `engine/dbService.ts`)
-
-- [x] **Client polling & SSE push notifications** – implement polling fallback and SSE endpoint for task completion (file: server/index.ts)
+- [x] **Client polling & SSE push notifications** – implement polling fallback and SSE endpoint for task completion (file: `server/index.ts`)
 - [x] **Build errors from missing dependencies** – React, Recharts, Express, and Supertest typings not installed causing tsc errors (file: package.json)
-- [x] **Test failures due to missing firebase-admin** – auth-related tests fail because firebase-admin module is absent (file: engine/authService.test.ts)
-- [x] **Alliances & PvP & Leaderboards** – alliance system with forum, member limits, map overlay (file: engine/allianceSystem.ts)
-- [x] **TypeScript build errors** – missing typings or modules cause compilation failures (files: frontend/*, server/index.ts)
+- [x] **Test failures due to missing firebase-admin** – auth-related tests fail because firebase-admin module is absent (file: `engine/authService.test.ts`)
+- [x] **Alliances & PvP & Leaderboards** – alliance system with forum, member limits, map overlay (file: `engine/allianceSystem.ts`)
+- [x] **TypeScript build errors** – missing typings or modules cause compilation failures (files: frontend/*, server/index.ts`)
 
-
-## Phase 0 – Closed Alpha QA, UX-Feedback, kritische Bugfixes
-- [ ] **Phase 0 – Closed Alpha QA** – Interne Tester prüfen alle Kern-Mechaniken und dokumentieren kritische Bugs.
-- [ ] **Phase 0 – UX-Report Top-5** – Wichtigste UX-Probleme der Tester sammeln und priorisieren.
-- [ ] **Phase 0 – Bug Tracker ≤10** – Kritische Issues im Bug-Tracker auf zehn oder weniger reduzieren.
-
-## Phase 1 – Art-Review & Asset-Finalisierung, Sound-Integration, interaktives Tutorial
-- [ ] **Phase 1 – Asset Review** – Finales Asset-Pack prüfen und freigeben.
-- [ ] **Phase 1 – Sound Integration** – Soundeffekte und Musik ins Spiel integrieren.
-- [ ] **Phase 1 – Tutorial Level** – Interaktives Tutorial-Level fertigstellen.
-
-## Phase 2 – Allianz-Chat/Forum, Discord-Server, Beta-Registrierung & Social-Media-Launch
-- [ ] **Phase 2 – Alliance Chat** – Ingame-Allianz-Chat und Forum implementieren.
-- [ ] **Phase 2 – Discord Community** – Discord-Server einrichten und 100+ Mitglieder gewinnen.
-- [ ] **Phase 2 – Beta Registration** – Beta-Anmeldung und Social-Media-Kampagne starten mit 500+ Signups.
-
-## Phase 3 – Asynchrones PvP mit ELO, Saison-System, kosmetische Belohnungen
-- [ ] **Phase 3 – Async PvP Loop** – Asynchrones PvP mit ELO-Bewertung und Ranglisten implementieren.
-- [ ] **Phase 3 – Season Dashboard** – Saison-System mit Fortschrittsanzeige bauen.
-- [ ] **Phase 3 – Cosmetic Skins** – Drei freischaltbare kosmetische Skins hinzufügen.
-
-## Phase 4 – Marktplatz & Auktionen, Direkttausch mit Escrow, Abuse-Schutz
-- [ ] **Phase 4 – Marketplace Launch** – Marktplatz und Auktionssystem bereitstellen.
-- [ ] **Phase 4 – Escrow Trades** – Direkttausch mit Escrow-Funktion implementieren.
-- [ ] **Phase 4 – Abuse Protection** – Transaktionslog und Abuse-Tests durchführen.
-
-## Phase 5 – Open Beta & Stress-Test, Lokalisierung, Mobile-Optimierung, langfristige Roadmap
-- [ ] **Phase 5 – Stress Test** – Offene Beta mit 99,9% Uptime durchführen.
-- [ ] **Phase 5 – Localization** – UI in drei Sprachen bereitstellen.
-- [ ] **Phase 5 – Low-Bandwidth Mode** – Mobile-optimierten Low-Bandwidth-Modus entwickeln.
-- [ ] **Phase 5 – Long-term Roadmap** – Langfristige Feature-Roadmap veröffentlichen.
-
-### Nächste Schritte
-Wähle eine Phase (0–5), um die Tasks dieser Phase als Nächstes umzusetzen.
+### Next Steps
+- Choose which phase to implement next, or focus on a specific cluster (e.g. Alliance backend, PvP logic, UI polish).
+- Review HEALTHCHECK.md before pushing major changes.
+- If multiple agents are needed (due to parallel work or domain complexity), fork or extend them as required.

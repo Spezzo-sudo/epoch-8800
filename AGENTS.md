@@ -32,6 +32,14 @@ This repository hosts the code for **Epoch 8800**, a lightweight RTS browser gam
 - Unit classes, counters, and PvE mission logic.
 - Legendary unit rules.
 
+### Multiplayer Systems Cluster
+- Alliances, chat, and shared intelligence.
+- Asynchronous PvP with leaderboards and season resets.
+
+### Telemetry & Analytics Cluster
+- Balancing logs and telemetry collection.
+- Dashboards and health monitoring.
+
 ### Support & Infrastructure
 - Authentication flow.
 - Settings and mobile optimizations.
