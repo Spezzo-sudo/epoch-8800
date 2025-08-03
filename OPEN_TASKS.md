@@ -1,6 +1,6 @@
 # Open Tasks
 
-- [ ] **Replace stub typings** – Install official `@types/*` and real packages for React, Phaser, Recharts, Supertest, Jest, and Firebase Admin (file: `src/types/*`)
+- [x] **Replace stub typings** – Install official `@types/*` and real packages for React, Phaser, Recharts, Supertest, Jest, and Firebase Admin (file: `src/types/*`)
 
 ## Phase 0 – Closed Alpha QA, UX-Feedback, kritische Bugfixes
 - [ ] **Phase 0 – Closed Alpha QA** – Interne Tester prüfen alle Kern-Mechaniken und dokumentieren kritische Bugs.

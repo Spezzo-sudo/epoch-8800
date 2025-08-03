@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "lib": ["es2019", "dom"],
-    "typeRoots": ["node_modules/@types", "src/types"],
+    "typeRoots": ["node_modules/@types"],
     "types": ["node", "express", "phaser", "jest", "supertest", "react", "react-dom", "recharts"],
     "allowSyntheticDefaultImports": true,
     "rootDirs": ["src", "engine", "frontend", "schemas", "server"],

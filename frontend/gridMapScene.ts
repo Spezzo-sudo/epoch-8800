@@ -37,7 +37,7 @@ export class GridMapScene extends Phaser.Scene {
       graphics.fillStyle(0x444444, 1);
       graphics.lineStyle(1, 0x888888);
       this.drawHex(graphics, this.tileSize / 2);
-      graphics.setInteractive(new Phaser.Geom.Polygon(graphics.getPath()), Phaser.Geom.Polygon.Contains);
+      graphics.setInteractive(new Phaser.Geom.Rectangle(-this.tileSize / 2, -this.tileSize / 2, this.tileSize, this.tileSize), Phaser.Geom.Rectangle.Contains);
       const spr = graphics;
       spr.on('pointerover', () => {
         emit('tileHover', tile);

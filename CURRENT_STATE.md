@@ -13,7 +13,7 @@ frontend/           - Phaser UI scenes, panels, and mock data
 schemas/            - JSON schemas for contracts (economy, combat, research, etc.)
 scripts/            - Build, test, and asset pipeline scripts
 server/             - Express-based server and authentication routes
-src/                - Type declarations and entrypoint
+src/                - Entry point
 ```
 
 ## C. Roadmap & Milestones
@@ -26,10 +26,10 @@ Project phases and goals are tracked in `OPEN_TASKS.md` and span closed alpha th
 - **Phase 5 – Open beta, localization, mobile optimization**
 
 ## D. Task Status
-Open and archived tasks are maintained in [`OPEN_TASKS.md`](OPEN_TASKS.md). Current open items include replacing stub typings and completing phase deliverables for phases 0–5. Archived tasks record completed fixes such as grid pathfinding, PvE persistence, asset pipeline dependencies, and more.
+Open and archived tasks are maintained in [`OPEN_TASKS.md`](OPEN_TASKS.md). Current open items cover phase deliverables for phases 0–5. Archived tasks record completed fixes such as grid pathfinding, PvE persistence, asset pipeline dependencies, and more.
 
 ## E. Known Issues & Technical Debt
-- Stub typings are used for React, Phaser, Recharts, Supertest, Jest, and Firebase Admin; official packages are pending installation.
+- Official typings and packages for React, Phaser, Recharts, Supertest, Jest, and Firebase Admin are installed.
 - Full Firestore integration and end-to-end event bus tests are not yet validated.
 - Alliance, PvP, marketplace, and localization features remain unimplemented.
 

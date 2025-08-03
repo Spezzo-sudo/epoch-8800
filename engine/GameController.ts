@@ -13,12 +13,14 @@ export class GameController {
   private state: GameState = initialState;
 
   async start(playerId?: string, token?: string): Promise<void> {
+    let pid = playerId;
     if (token) {
-      playerId = await verifyToken(token);
+      pid = await verifyToken(token);
     }
-    if (!playerId) throw new Error('missing auth');
-    this.state = await loadState(playerId);
-    subscribeToEvents(playerId);
+    if (!pid) throw new Error('missing auth');
+    const fixedId = pid;
+    this.state = await loadState(fixedId);
+    subscribeToEvents(fixedId);
     EventBus.on('tick', () => {
       applyTick(this.state);
       const prod = calculateProduction(this.state);
@@ -27,7 +29,7 @@ export class GameController {
       this.state.resources.pyronis += prod.pyronis;
       this.state.resources.voltaris += prod.voltaris;
       applyMaintenance(this.state);
-      EventBus.emit('resource_change', { playerId });
+        EventBus.emit('resource_change', { playerId: fixedId });
     });
     EventBus.on('research_unlock', p => {
       applyResearch(p.nodeId, {
@@ -48,10 +50,10 @@ export class GameController {
         voltaris: this.state.resources.voltaris,
         research: this.state.research.completed
       }, this.state.research);
-      EventBus.emit('defense_constructed', { structureId: p.structureId, playerId });
+        EventBus.emit('defense_constructed', { structureId: p.structureId, playerId: fixedId });
     });
     EventBus.emit('tick', undefined);
-    await saveState(playerId, this.state);
+    await saveState(fixedId, this.state);
   }
 
   async simulateSession(): Promise<void> {

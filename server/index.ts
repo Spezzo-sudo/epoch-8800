@@ -50,7 +50,7 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 }
 
 app.post('/api/register', async (req: Request, res: Response) => {
-  const ip = req.ip;
+  const ip = req.ip || '';
   if (rateLimit(ip, ipRegisterRequests)) return res.status(429).json({ error: 'rate limit' });
   if (!req.headers.cookie || !req.headers.cookie.includes('signupToken=')) {
     const token = randomUUID();
@@ -63,10 +63,10 @@ app.post('/api/register', async (req: Request, res: Response) => {
       .find((p: string) => p.startsWith('signupToken='))
       ?.split('=')[1];
   if (!signupToken || usedSignupTokens.has(signupToken)) return res.status(400).json({ error: 'signup token used' });
-  const { email, password, recaptchaToken } = req.body;
+  const { email, password, recaptchaToken } = req.body as { email: string; password: string; recaptchaToken: string };
   if (!email || !password || !recaptchaToken) return res.status(400).json({ error: 'missing fields' });
   if (!(await verifyRecaptcha(recaptchaToken))) return res.status(400).json({ error: 'invalid recaptcha' });
-  const domain = email.split('@')[1];
+  const domain = email.split('@')[1] || '';
   const now = Date.now();
   const reg = ipRegistrations[ip];
   if (reg && now - reg.time < 86400000 && reg.count >= 2) return res.status(429).json({ error: 'account cooldown' });
@@ -81,9 +81,9 @@ app.post('/api/register', async (req: Request, res: Response) => {
 });
 
 app.post('/api/login', (req: Request, res: Response) => {
-  const ip = req.ip;
+  const ip = req.ip || '';
   if (rateLimit(ip, ipLoginRequests)) return res.status(429).json({ error: 'rate limit' });
-  const { email, password } = req.body;
+  const { email, password } = req.body as { email: string; password: string };
   const user = users[email];
   if (!user || user.password !== password) return res.status(401).json({ error: 'invalid credentials' });
   if (!user.isVerified) return res.status(403).json({ error: 'email not verified' });
@@ -91,7 +91,7 @@ app.post('/api/login', (req: Request, res: Response) => {
 });
 
 app.post('/api/verify', (req: Request, res: Response) => {
-  const { email, token } = req.body;
+  const { email, token } = req.body as { email: string; token: string };
   const user = users[email];
   if (!user || user.verificationToken !== token) return res.status(400).json({ error: 'invalid token' });
   user.isVerified = true;
