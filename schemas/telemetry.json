@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "timestamp": { "type": "number" },
+    "eventType": { "enum": ["unitWin", "resourceGather", "missionComplete", "queueUsage"] },
+    "payload": { "type": "object" }
+  },
+  "required": ["timestamp", "eventType", "payload"]
+}

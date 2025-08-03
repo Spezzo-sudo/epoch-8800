@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EventBusContract",
+  "type": "object",
+  "properties": {
+    "events": {"type": "array", "items": {"type":"string"}}
+  },
+  "required": ["events"]
+}

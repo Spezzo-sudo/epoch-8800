@@ -1,0 +1,74 @@
+{
+  "plasmataktik_1": {
+    "name": "Plasmataktik 1",
+    "tier": 1,
+    "requires": [],
+    "requires_buildings": {},
+    "energy_required": 0,
+    "faction": "All",
+    "unlocks": ["emp_resonanzanalyse", "baukoord"]
+  },
+  "baukoord": {
+    "name": "Baukoordinatoren",
+    "tier": 1,
+    "requires": [],
+    "requires_buildings": {},
+    "energy_required": 0,
+    "faction": "All",
+    "unlocks": []
+  },
+  "emp_resonanzanalyse": {
+    "name": "EMP-Resonanzanalyse",
+    "tier": 2,
+    "requires": ["plasmataktik_1"],
+    "requires_buildings": { "defense_hub": 3 },
+    "energy_required": 0,
+    "faction": "VorrTech",
+    "unlocks": ["UNIT:EMP_FALKE", "technotheismus"]
+  },
+  "schildmatrix_tech": {
+    "name": "Schildmatrix-Technik",
+    "tier": 2,
+    "requires": ["plasmataktik_1"],
+    "requires_buildings": { "energy_core": 3 },
+    "energy_required": 5,
+    "faction": "Aetherion",
+    "unlocks": ["UNIT:AETHERION_SCHILDTRAEGER"]
+  },
+  "plasma_overload": {
+    "name": "Plasma Overload",
+    "tier": 2,
+    "requires": ["plasmataktik_1"],
+    "requires_buildings": { "hangar": 3 },
+    "energy_required": 0,
+    "faction": "Thermoclan",
+    "unlocks": ["UNIT:PLASMARAUCHGLEITER"]
+  },
+  "kodexarchitektur": {
+    "name": "Kodexarchitektur",
+    "tier": 2,
+    "requires": ["plasmataktik_1"],
+    "requires_buildings": { "research_hub": 3 },
+    "energy_required": 0,
+    "faction": "Novarkh",
+    "unlocks": ["UNIT:NOVARKH_KODEX"]
+  },
+  "technotheismus": {
+    "name": "Technotheismus",
+    "tier": 3,
+    "requires": ["emp_resonanzanalyse"],
+    "requires_buildings": { "research_hub": 5 },
+    "energy_required": 10,
+    "faction": "VorrTech",
+    "unlocks": ["quantenkoharenz"]
+  },
+  "quantenkoharenz": {
+    "name": "Quantenkohärenz",
+    "tier": 3,
+    "requires": ["technotheismus"],
+    "requires_buildings": { "research_hub": 6 },
+    "energy_required": 15,
+    "faction": "VorrTech",
+    "unlocks": ["UNIT:PHANTOM_KI"]
+  }
+}

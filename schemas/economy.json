@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EconomyConfig",
+  "type": "object",
+  "properties": {
+    "buildings": {
+      "type": "object",
+      "properties": {
+        "metalMine": {"$ref": "#/definitions/building"},
+        "crystalRefinery": {"$ref": "#/definitions/building"},
+        "plasmaGenerator": {"$ref": "#/definitions/building"},
+        "energyReactor": {"$ref": "#/definitions/building"}
+      },
+      "additionalProperties": false
+    },
+    "storage": {
+      "type": "object",
+      "properties": {
+        "stronixVault": {"$ref": "#/definitions/storage"},
+        "crysalisCache": {"$ref": "#/definitions/storage"},
+        "voltarisBank": {"$ref": "#/definitions/storage"},
+        "pyronisTank": {"$ref": "#/definitions/storage"}
+      },
+      "additionalProperties": false
+    },
+    "transport": {
+      "type": "object",
+      "properties": {
+        "transportRate": {"type": "number"},
+        "lossFactor": {"type": "number"}
+      },
+      "required": ["transportRate", "lossFactor"]
+    },
+    "market": {
+      "type": "object",
+      "properties": {
+        "basePrice": {
+          "type": "object",
+          "properties": {
+            "stronix": {"type": "number"},
+            "crysalis": {"type": "number"},
+            "voltaris": {"type": "number"},
+            "pyronis": {"type": "number"}
+          },
+          "required": ["stronix", "crysalis", "voltaris", "pyronis"]
+        },
+        "demandClamp": {"type": "number"},
+        "supplyClamp": {"type": "number"},
+        "transactionFee": {"type": "number"}
+      },
+      "required": ["basePrice", "demandClamp", "supplyClamp", "transactionFee"]
+    },
+    "upgrades": {
+      "type": "array",
+      "items": {"$ref": "#/definitions/upgrade"}
+    }
+  },
+  "definitions": {
+    "building": {
+      "type": "object",
+      "properties": {
+        "baseRate": {"type": "number"},
+        "maintFactor": {"type": "number"},
+        "baseCap": {"type": "number"}
+      },
+      "required": ["baseRate", "maintFactor", "baseCap"]
+    },
+    "storage": {
+      "type": "object",
+      "properties": {
+        "baseCap": {"type": "number"},
+        "growthFactor": {"type": "number"}
+      },
+      "required": ["baseCap", "growthFactor"]
+    },
+    "upgrade": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "requires": {"type": "array", "items": {"type": "string"}},
+        "costs": {
+          "type": "object",
+          "properties": {
+            "stronix": {"type": "number"},
+            "crysalis": {"type": "number"},
+            "voltaris": {"type": "number"},
+            "pyronis": {"type": "number"}
+          },
+          "required": ["stronix", "crysalis", "voltaris", "pyronis"]
+        },
+        "effects": {"type": "object"}
+      },
+      "required": ["id", "name", "description", "requires", "costs", "effects"]
+    }
+  },
+  "required": ["buildings", "storage", "transport", "market", "upgrades"]
+}

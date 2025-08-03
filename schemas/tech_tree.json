@@ -1,0 +1,12 @@
+{
+  "Energiekern": {
+    "maxLevel": 30,
+    "requires": {},
+    "unlocks": ["Plasmakammer"]
+  },
+  "Plasmakammer": {
+    "maxLevel": 30,
+    "requires": { "Energiekern": 5 },
+    "unlocks": []
+  }
+}

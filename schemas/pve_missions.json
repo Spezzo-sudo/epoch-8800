@@ -1,0 +1,67 @@
+{
+  "mission_attack_alpha": {
+    "id": "mission_attack_alpha",
+    "name": "Attack Alpha",
+    "description": "Repel the Thermoclan vanguard.",
+    "type": "attack",
+    "buildPhaseDuration": 20,
+    "waves": [
+      {
+        "enemies": [{ "unitId": "Plasmaraumgleiter", "count": 3 }],
+        "spawnDelay": 0
+      },
+      {
+        "enemies": [{ "unitId": "Plasmaraumgleiter", "count": 5 }],
+        "spawnDelay": 30
+      },
+      {
+        "enemies": [{ "unitId": "Plasmaraumgleiter", "count": 8 }],
+        "spawnDelay": 60
+      }
+    ],
+    "rewards": { "stronix": 100, "crysalis": 50, "voltaris": 20, "pyronis": 30, "xp": 40 },
+    "prerequisites": { "researchNodeIds": ["plasmataktik_1"], "buildingLevels": { "Energiekern": 1 } },
+    "story": [
+      { "trigger": "start", "text": "The attack begins." },
+      { "trigger": "missionComplete", "text": "You have repelled the horde." }
+    ]
+  },
+  "mission_defense_omega": {
+    "id": "mission_defense_omega",
+    "name": "Defense Omega",
+    "description": "Hold out against mixed factions.",
+    "type": "defense",
+    "buildPhaseDuration": 30,
+    "waves": [
+      { "enemies": [{ "unitId": "Späherdrohne", "count": 5 }], "spawnDelay": 0 },
+      { "enemies": [{ "unitId": "EMP-Falke", "count": 2 }], "spawnDelay": 20 },
+      { "enemies": [{ "unitId": "Plasmaraumgleiter", "count": 3 }], "spawnDelay": 40 },
+      { "enemies": [{ "unitId": "Aetherion-Schildträger", "count": 2 }], "spawnDelay": 60 },
+      { "enemies": [{ "unitId": "Orbitalschleier", "count": 1 }], "spawnDelay": 80 }
+    ],
+    "rewards": { "stronix": 200, "crysalis": 150, "voltaris": 40, "pyronis": 60, "xp": 80, "respecTokens": 1 },
+    "prerequisites": { "researchNodeIds": ["baukoord"], "buildingLevels": { "Energiekern": 2 } },
+    "story": [
+      { "trigger": "waveComplete", "text": "Another wave down." },
+      { "trigger": "missionComplete", "text": "Omega defended successfully." }
+    ]
+  },
+  "mission_rescue_echo": {
+    "id": "mission_rescue_echo",
+    "name": "Rescue Echo",
+    "description": "Retrieve the stranded Späherdrohne before time runs out.",
+    "type": "rescue",
+    "buildPhaseDuration": 15,
+    "waves": [
+      { "enemies": [{ "unitId": "EMP-Falke", "count": 1 }], "spawnDelay": 10 },
+      { "enemies": [{ "unitId": "Plasmaraumgleiter", "count": 2 }], "spawnDelay": 25 },
+      { "enemies": [{ "unitId": "Orbitalschleier", "count": 1 }], "spawnDelay": 40 }
+    ],
+    "rewards": { "stronix": 150, "crysalis": 100, "voltaris": 25, "pyronis": 40, "xp": 60 },
+    "prerequisites": { "researchNodeIds": [], "buildingLevels": {} },
+    "story": [
+      { "trigger": "start", "text": "Locate the drone quickly." },
+      { "trigger": "missionComplete", "text": "The drone is safe." }
+    ]
+  }
+}
