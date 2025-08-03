@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# Cluster: Support & Infrastructure
 set -euo pipefail
 
-echo "🔄 Cleaning install"
-rm -rf node_modules dist
+echo "⟳ Cleaning workspace…"
+rm -rf dist/
+
+echo "⟳ Installing dependencies…"
 npm ci
 
-echo "🔨 Building project"
+echo "⟳ Building project…"
 npm run build
 
-echo "✅ Running tests"
+echo "⟳ Running tests…"
 npm test
 
-echo "🎉 Setup complete"
+echo "✅ setup.sh complete"
