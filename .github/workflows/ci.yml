@@ -1,3 +1,4 @@
+# Cluster: Support & Infrastructure
 name: CI
 on:
   push:
@@ -12,11 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm run setup
       - run: npm run build
-      - name: Load Firebase config
-        run: |
-          echo "$FIREBASE_CONFIG" > config/firebaseConfig.json
-        env:
-          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
-      - run: npm run test
+      - run: npm test

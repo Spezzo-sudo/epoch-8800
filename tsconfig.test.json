@@ -1,0 +1,8 @@
+// Cluster: Support & Infrastructure
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "exclude": []
+}

@@ -1,4 +1,8 @@
 # Testing Strategy
+<!-- Cluster: Support & Infrastructure -->
+
+Epoch 8800 uses Jest with the `ts-jest` preset to execute TypeScript tests without a
+manual compilation step.
 
 The Codex sandbox lacks internet access, so packages from npm cannot be installed during
 CI runs. However, the environment does include a global `node` and `tsc` binary.  No
@@ -14,25 +18,19 @@ global `ts-node` module is available.
 
 ## Current Workflow
 
-- `scripts/build.js` invokes the global `tsc` binary to compile the project.
-- `scripts/test.js` compiles the project (including test files) to a temporary
-  directory using `tsc` and then executes the generated `.js` tests with `node`.
+- `npm run build` invokes `tsc --noEmit` to type-check the project.
+- `npm test` runs Jest with the `ts-jest` preset, compiling TypeScript test files on the fly.
 
 This approach avoids missing module errors and keeps the test harness simple.
 
 ## Pros
-- No external dependencies are required beyond the preinstalled `tsc`.
-- Tests run in plain Node after compilation, so no custom loaders are needed.
+- TypeScript test files execute directly through Jest.
+- No custom loaders are needed beyond `ts-jest`.
 
 ## Cons
-- Compilation errors may still stop the build unless `--noEmitOnError false` is
-  used.  The current test script compiles with errors allowed to keep progress
-  moving.
-- TypeScript type checking is effectively bypassed when errors exist.
+- Type-checking errors may still stop the build.
 
 ## Recommendation
 
-Continue using the global `tsc` workflow.  When network access becomes available,
-consider adding `typescript` and `ts-node` as devDependencies to enable stricter
-checks.  For now this solution allows tests and builds to run inside the sandbox
-without forbidden binaries.
+Continue using `ts-jest` for test runs and `tsc --noEmit` for type checking to keep
+the workflow deterministic in constrained environments.
