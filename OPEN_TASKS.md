@@ -7,7 +7,8 @@
 - [ ] **Phase 0 – UX-Report Top-5** – Wichtigste UX-Probleme der Tester sammeln und priorisieren.
 - [ ] **Phase 0 – Bug Tracker ≤10** – Kritische Issues im Bug-Tracker auf zehn oder weniger reduzieren.
 - [x] **Phase 0 – Address npm vulnerabilities** – Run `npm audit fix` and upgrade packages to resolve critical security issues (file: `package.json`)
- - [ ] **Phase 0 – Upgrade firebase-admin** – Update firebase-admin and transitive deps to fix protobufjs prototype pollution vulnerability (file: `package.json`)
+- [x] **Phase 0 – Upgrade firebase-admin** – Bumped to v13.4.0 to resolve prototype-pollution issue (file: `package.json`)
+ - [x] **Phase 0 – Patch protobufjs** – Upgraded to v7.5.3 via firebase-admin to remove CVE-2023-36665
  - [ ] **Phase 0 – mockTickTest compile error** – `mockTickTest.ts` fails because PlayerData and ResourceState are not exported from tickSystem (file: `backend/tickSystem.ts`)
 
 ## Phase 1 – Art-Review & Asset-Finalisierung, Sound-Integration, interaktives Tutorial
