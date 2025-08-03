@@ -6,6 +6,7 @@
 - [ ] **Phase 0 – Closed Alpha QA** – Interne Tester prüfen alle Kern-Mechaniken und dokumentieren kritische Bugs.
 - [ ] **Phase 0 – UX-Report Top-5** – Wichtigste UX-Probleme der Tester sammeln und priorisieren.
 - [ ] **Phase 0 – Bug Tracker ≤10** – Kritische Issues im Bug-Tracker auf zehn oder weniger reduzieren.
+- [ ] **Phase 0 – Address npm vulnerabilities** – Run `npm audit fix` and upgrade packages to resolve critical security issues (file: `package.json`)
 
 ## Phase 1 – Art-Review & Asset-Finalisierung, Sound-Integration, interaktives Tutorial
 - [ ] **Phase 1 – Asset Review** – Finales Asset-Pack prüfen und freigeben.
