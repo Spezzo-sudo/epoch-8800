@@ -20,5 +20,6 @@
     },
     "jsx": "react-jsx"
   },
-  "include": ["src/**/*", "engine/**/*", "frontend/**/*", "schemas/**/*", "server/**/*"]
+  "include": ["src/**/*", "engine/**/*", "frontend/**/*", "schemas/**/*", "server/**/*"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
 }

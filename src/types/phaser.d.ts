@@ -21,6 +21,7 @@ declare namespace Phaser {
     class Container {
       add(child: any): this;
       destroy(): void;
+      removeAll(destroy?: boolean): void;
     }
     class Graphics {
       fillStyle(color: number, alpha?: number): this;

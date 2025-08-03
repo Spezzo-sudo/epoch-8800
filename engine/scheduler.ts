@@ -7,9 +7,9 @@ export function tickScheduler(playerId: string): void {
 }
 
 export function subscribeToEvents(playerId: string): void {
-  if (typeof (global as any).EventSource !== 'undefined') {
+  if (typeof (globalThis as any).EventSource !== 'undefined') {
     try {
-      const es = new (global as any).EventSource('/events');
+      const es = new (globalThis as any).EventSource('/events');
       es.onmessage = (ev: MessageEvent) => {
         try {
           const data = JSON.parse(ev.data);

@@ -28,7 +28,7 @@
 - [x] **Build errors from missing dependencies** – React, Recharts, Express, and Supertest typings not installed causing tsc errors (file: package.json)
 - [x] **Test failures due to missing firebase-admin** – auth-related tests fail because firebase-admin module is absent (file: engine/authService.test.ts)
 - [x] **Alliances & PvP & Leaderboards** – alliance system with forum, member limits, map overlay (file: engine/allianceSystem.ts)
-- [ ] **TypeScript build errors** – missing typings or modules cause compilation failures (files: frontend/*, server/index.ts)
+- [x] **TypeScript build errors** – missing typings or modules cause compilation failures (files: frontend/*, server/index.ts)
 
 
 ## Phase 0 – Closed Alpha QA, UX-Feedback, kritische Bugfixes

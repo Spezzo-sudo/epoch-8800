@@ -11,4 +11,5 @@ export interface GameEventMap {
   mission_start: { missionId: string };
   spawn_unit: { enemies: any; wave: number };
   mission_complete: { missionId: string; result: string; rewards: any };
+  auth_success: { userId: string };
 }

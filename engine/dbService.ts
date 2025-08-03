@@ -2,21 +2,22 @@
 import { GameState, initialState } from './persistence';
 import { readFileSync } from 'fs';
 import admin, { ServiceAccount } from 'firebase-admin';
+const firebase: any = admin;
 import { FirestoreConfig } from './types/dbTypes';
 
 let store: Record<string, GameState> = {};
-let firestore: admin.firestore.Firestore | null = null;
+let firestore: any | null = null;
 
 if (process.env.TEST_ENV !== 'true') {
   try {
     const config = JSON.parse(readFileSync('config/firebaseConfig.json', 'utf8')) as FirestoreConfig;
-    if (!admin.apps.length) {
-      admin.initializeApp({
-        credential: admin.credential.cert(config as ServiceAccount),
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        credential: firebase.credential.cert(config as ServiceAccount),
         databaseURL: `https://${config.projectId}.firebaseio.com`
       });
     }
-    firestore = admin.firestore();
+    firestore = firebase.firestore();
   } catch (err) {
     console.warn('Firestore init failed, falling back to memory store', err);
   }

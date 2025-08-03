@@ -15,6 +15,7 @@ export type GameEventMap = {
   alliance_updated: { allianceId: string };
   forum_posted: { allianceId: string; postId: string };
   espionage_reported: { allianceId: string; reportId: string };
+  auth_success: { userId: string };
 };
 
 type Handler = (payload: any) => void;

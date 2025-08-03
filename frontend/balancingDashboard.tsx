@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import { fetchMetrics } from '../engine/telemetrySystem';
-import designTokens from './designTokens';
+import { spacing, colors } from './designTokens';
 import Phaser from 'phaser';
 
 interface ChartDatum { [key: string]: any; }
@@ -37,9 +37,9 @@ function formatTime(ts: number) {
 }
 
 function Dashboard() {
-  const [unitData, setUnitData] = useState<ChartDatum[]>([]);
-  const [queueData, setQueueData] = useState<ChartDatum[]>([]);
-  const [missionData, setMissionData] = useState<ChartDatum[]>([]);
+  const [unitData, setUnitData] = useState([] as ChartDatum[]);
+  const [queueData, setQueueData] = useState([] as ChartDatum[]);
+  const [missionData, setMissionData] = useState([] as ChartDatum[]);
 
   useEffect(() => {
     const since = Date.now() - 24 * 3600 * 1000;
@@ -49,7 +49,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div style={{ padding: designTokens.spacing.md }}>
+    <div style={{ padding: spacing.md }}>
       <h2>Unit Win Rates</h2>
       <BarChart width={600} height={300} data={unitData}>
         <XAxis dataKey="unitId" />
@@ -71,8 +71,8 @@ function Dashboard() {
       <h2>Mission Outcomes</h2>
       <PieChart width={400} height={300}>
         <Pie data={missionData} dataKey="value" nameKey="name" outerRadius={100}>
-          {missionData.map((entry, index) => (
-            <Cell key={index} fill={designTokens.colors[index % designTokens.colors.length]} />
+          {missionData.map((entry: any, index: number) => (
+            <Cell key={index} fill={Object.values(colors)[index % Object.values(colors).length]} />
           ))}
         </Pie>
         <Tooltip />

@@ -57,7 +57,11 @@ app.post('/api/register', async (req: Request, res: Response) => {
     res.setHeader('Set-Cookie', `signupToken=${token}; Max-Age=2592000; HttpOnly`);
     return res.status(400).json({ error: 'missing signup token' });
   }
-  const signupToken = req.headers.cookie!.split(';').map(p => p.trim()).find(p => p.startsWith('signupToken='))?.split('=')[1];
+    const signupToken = req.headers.cookie!
+      .split(';')
+      .map((p: string) => p.trim())
+      .find((p: string) => p.startsWith('signupToken='))
+      ?.split('=')[1];
   if (!signupToken || usedSignupTokens.has(signupToken)) return res.status(400).json({ error: 'signup token used' });
   const { email, password, recaptchaToken } = req.body;
   if (!email || !password || !recaptchaToken) return res.status(400).json({ error: 'missing fields' });
@@ -94,18 +98,16 @@ app.post('/api/verify', (req: Request, res: Response) => {
   res.json({ ok: true });
 });
 
-app.get('/events', (req: Request, res: Response) => {
-  res.set({
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    Connection: 'keep-alive',
+  app.get('/events', (req: Request, res: Response) => {
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    const sendEvent = (payload: any) => {
+      res.write(`data: ${JSON.stringify(payload)}\n\n`);
+    };
+    EventBus.on('task_complete', sendEvent);
+    req.on('close', () => EventBus.off('task_complete', sendEvent));
   });
-  const sendEvent = (payload: any) => {
-    res.write(`data: ${JSON.stringify(payload)}\n\n`);
-  };
-  EventBus.on('task_complete', sendEvent);
-  req.on('close', () => EventBus.off('task_complete', sendEvent));
-});
 
 if (require.main === module) {
   const port = Number(process.env.PORT) || 3000;
