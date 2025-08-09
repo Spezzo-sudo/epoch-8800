@@ -122,9 +122,15 @@ function initFleet(fleet: Fleet): FleetState {
   };
 }
 
-export function simulateBattle(att: Fleet, def: Fleet, maxRounds = 20): BattleOutcome {
-  const attacker = initFleet(att);
-  const defender = initFleet(def);
+export function simulateBattle(att: UnitData[], def: UnitData[], maxRounds?: number): BattleOutcome;
+export function simulateBattle(att: Fleet, def: Fleet, maxRounds?: number): BattleOutcome;
+export function simulateBattle(
+  att: Fleet | UnitData[],
+  def: Fleet | UnitData[],
+  maxRounds = 20,
+): BattleOutcome {
+  const attacker = initFleet(Array.isArray(att) ? { units: att, shield: 0 } : att);
+  const defender = initFleet(Array.isArray(def) ? { units: def, shield: 0 } : def);
   const logs: BattleLog[] = [];
   let round = 0;
   while (attacker.units.length && defender.units.length && round < maxRounds) {
