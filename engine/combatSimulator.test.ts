@@ -24,7 +24,7 @@ assert(Math.abs(pyroRes.logs[0].defenderShield - expectedShield) < 1e-6, 'Shield
 assert(pyroRes.logs[0].defenderShield < ctrlRes.logs[0].defenderShield, 'Pyronis should drain shield faster');
 
 // Medium vs medium attrition
-const attrition = simulateBattle(fleet([Units.PLASMARAUCHGLEITER]), fleet([Units.PLASMARAUCHGLEITER]), 3);
+const attrition = simulateBattle(fleet([Units.SPAEHERDRONE]), fleet([Units.SPAEHERDRONE]), 3);
 assert(attrition.survivors.attacker.length > 0 && attrition.survivors.defender.length > 0, 'Medium attrition should leave survivors');
 assert(attrition.rounds === 3 && attrition.logs.length === attrition.rounds, 'Rounds should cap and logs match');
 
