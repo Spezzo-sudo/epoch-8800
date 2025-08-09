@@ -141,6 +141,10 @@ export function simulateBattle(att: Fleet, def: Fleet, maxRounds = 20): BattleOu
       defenderShield: defender.shield,
     });
   }
-  return { rounds: round, survivors: { attacker: attacker.units, defender: defender.units }, logs };
+  return {
+    rounds: round,
+    survivors: { attacker: [...attacker.units], defender: [...defender.units] },
+    logs,
+  };
 }
 
