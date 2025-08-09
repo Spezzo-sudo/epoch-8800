@@ -67,20 +67,17 @@ function counters(att: UnitData, def: UnitData): boolean {
   });
 }
 
-function hasAdvantage(unit: UnitData, opponents: UnitData[]): boolean {
-  return opponents.some(o => counters(unit, o));
-}
-
-function isCountered(unit: UnitData, opponents: UnitData[]): boolean {
-  return opponents.some(o => counters(o, unit));
-}
-
 function damageMultiplier(unit: UnitData, opponents: UnitData[]): number {
-  const adv = hasAdvantage(unit, opponents);
-  const dis = isCountered(unit, opponents);
-  if (adv && !dis) return ADVANTAGE_MULTIPLIERS.counters;
-  if (dis && !adv) return ADVANTAGE_MULTIPLIERS.countered;
-  return ADVANTAGE_MULTIPLIERS.neutral;
+  if (!opponents.length) return ADVANTAGE_MULTIPLIERS.neutral;
+  let total = 0;
+  for (const o of opponents) {
+    const attAdv = counters(unit, o);
+    const defAdv = counters(o, unit);
+    if (attAdv && !defAdv) total += ADVANTAGE_MULTIPLIERS.counters;
+    else if (defAdv && !attAdv) total += ADVANTAGE_MULTIPLIERS.countered;
+    else total += ADVANTAGE_MULTIPLIERS.neutral;
+  }
+  return total / opponents.length;
 }
 
 function computeDamage(side: UnitData[], opponents: UnitData[]): number {

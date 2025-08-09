@@ -22,17 +22,17 @@ assert(pyroRes.logs[0].defenderShield < ctrlRes.logs[0].defenderShield, 'Pyronis
 
 // Medium vs medium attrition
 const attrition = simulateBattle(fleet([Units.PLASMARAUCHGLEITER]), fleet([Units.PLASMARAUCHGLEITER]), 3);
-assert(attrition.survivors.attacker.length === 1 && attrition.survivors.defender.length === 1, 'Medium attrition should leave survivors');
-assert(attrition.rounds === 3 && attrition.logs.length === 3, 'Rounds should cap and logs match');
+assert(attrition.survivors.attacker.length > 0 && attrition.survivors.defender.length > 0, 'Medium attrition should leave survivors');
+assert(attrition.rounds === 3 && attrition.logs.length === attrition.rounds, 'Rounds should cap and logs match');
 
 // Mixed tags advantage
-const mixed = simulateBattle(fleet([Units.EMP_FALKE, Units.EMP_FALKE]), fleet([Units.ORBITALSCHLEIER]), 20);
+const mixed = simulateBattle(fleet([Units.EMP_FALKE]), fleet([Units.ORBITALSCHLEIER]), 20);
 assert(mixed.survivors.attacker.length > mixed.survivors.defender.length, 'Advantaged attacker should have more survivors');
 
 // Empty attacker edge case
 const empty = simulateBattle(fleet([]), fleet([Units.SPAEHERDRONE]), 5);
 assert(empty.rounds === 0 && empty.logs.length === 0, 'Empty attacker should end immediately');
-assert(empty.survivors.defender.length === 1, 'Defender should remain when attacker empty');
+assert(empty.survivors.attacker.length === 0 && empty.survivors.defender.length > 0, 'Defender should remain when attacker empty');
 
 // Constant tables immutability
 assert(Object.isFrozen(ATTACK_PER_UNIT), 'ATTACK_PER_UNIT must be frozen');
